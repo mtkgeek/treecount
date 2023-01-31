@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link rel="stylesheet" 
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://unpkg.com/htmx.org@1.8.4" integrity="sha384-wg5Y/JwF7VxGk4zLsJEcAojRtlVp1FKKdGy1qN+OMtdq72WRvX/EdRdqg/LOhYeV" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/htmx.org/dist/ext/loading-states.js"></script>
+    <link href="{{ url_for('static', path='css/index.css') }}" rel="stylesheet">
+
+    {% block head %}
+    {% endblock %}
+    <title>{% block title %}{% endblock %}Geoscripting</title>
+   
+</head>
+<body id="body" class="bg-[#F4EFF4] min-h-screen">
+    <div id="header">
+        {% block header %}
+       
+        
+        {% endblock %}
+      
+      </div>
+
+
+    <div id="content" class="min-h-screen">{% block content %}{% endblock %}</div>
+    
+    
+    
+<div>
+      
+        {% block footer %}
+        
+        {% endblock %}
+        
+    </div>      
+
+    <!-- Include CDN JavaScript -->
+  <script src="{{ url_for('static', path='js/index.js') }}"></script>
+  
+  <!-- Hot reload script -->
+  {% if DEBUG %} 
+  {{ hot_reload.script(url_for('hot-reload')) | safe }} 
+  {% endif %}
+
+
+    {% block javascript %}
+    {% endblock %}
+    
+</body>
+</html>

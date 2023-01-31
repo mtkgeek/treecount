@@ -1,0 +1,81 @@
+{% extends "my_base.html" %}
+{% block title %}{{ data.title }}{% endblock %}
+{% block head %}
+{% include 'navbar.html' %}
+
+{% endblock %}
+
+
+{% block content %}
+
+  <div id="replaced" class="mt-16 mx-auto">
+    
+
+    <form id='form' hx-ext="loading-states" data-loading-target="#submitbutton"
+    data-loading-class="hidden" hx-encoding='multipart/form-data' hx-post='/process' hx-target="#replaced" >
+
+<div class="pt-15 px-2">
+  <div class="max-w-md mx-auto rounded-lg overflow-hidden md:max-w-xl">
+      <div class="md:flex">
+          <div class="w-full p-3">
+              <div class="relative border-dotted h-48 rounded-lg border-dashed border-2 border-blue-700 bg-gray-100 flex justify-center items-center">
+
+                <div class="absolute">
+                  
+                  <div class="flex flex-col items-center">
+                    <i class="fa fa-folder-open fa-4x text-blue-700"></i>
+                  <span class="block text-gray-400 font-normal">Click here to select file</span>
+                  </div>
+                </div>
+
+                <input multiple onchange="showname()" id="uploadfile" type="file" name="uploaded_files" class="h-full w-full opacity-0">
+
+                
+
+
+              </div>
+          </div>
+          
+      </div>
+  </div>
+  
+</div>
+<p class="text-center" id="filepara"></p>
+<div class="flex flex-col pt-8 mt-4 items-center">
+  <button id="submitbutton" class="mb-4 mx-auto bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+   Process
+</button>
+
+
+
+
+<div class="htmx-indicator flex flex-col items-center justify-center">
+
+
+
+  <img src="{{ url_for('static', path='img/loading.gif') }}">
+
+   </div>
+</div>
+  </div>
+  
+   
+</form>
+{% endblock %}
+</div>
+{% block footer %} 
+{% include 'my_footer.html' %}
+{% endblock %}
+
+{% block javascript %}
+<script>
+function showname() {
+  var name = document.getElementById('uploadfile'); 
+  var s = document.getElementById('filepara');
+ 
+  s.innerText = `${name.files.item(0).name} and ${name.files.item(1).name}`;
+
+};
+
+</script>
+{% endblock %}

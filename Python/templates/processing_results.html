@@ -1,0 +1,20 @@
+<div class="flex flex-col i">
+  <p class="text-xl text-center mt-4 mb-8">Results</p>
+
+{% for file in data.files %}
+
+
+<div class="mx-auto">
+<div class="flex justify-between items-center mb-4">
+
+<div class="my-4 mx-10"><i class="text-7xl fa-solid fa-file"></i></div>
+<p class="mb-4 mx-10 text-md">{{ file }}</p>
+<div class="mx-10">
+  <button id="download-button" class="mb-4 text-md mx-auto bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+   <a href="/download/{{ file }}">Download</a> 
+</button>
+
+</div>
+</div>
+{% endfor %}
+</div>

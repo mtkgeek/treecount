@@ -68,7 +68,6 @@ pyRFC3339==1.1
 pyrsistent==0.15.5
 pyserial==3.4
 python-dateutil==2.7.3
-python-debian===0.1.36ubuntu1
 python-irodsclient==1.1.6
 python-multipart==0.0.5
 pytz==2019.3

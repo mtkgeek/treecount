@@ -1,7 +1,7 @@
 # 
 
 
-FROM python:3.9
+FROM python:3.8.10
 
 # 
 
@@ -9,6 +9,9 @@ FROM python:3.9
 WORKDIR /code
 
 # 
+COPY setupr.sh
+
+RUN ./setupr.sh
 
 
 COPY ./requirements.txt /code/requirements.txt

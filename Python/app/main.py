@@ -8,13 +8,14 @@ from starlette.middleware.cors import CORSMiddleware
 from fastapi import FastAPI, Depends, Request
 from fastapi.responses import RedirectResponse, JSONResponse
 
-from Python.app.config import Settings, get_settings
+from config import Settings, get_settings
 
-from Python.app.website import site, web_config
+from website import site, web_config
 
 
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
+import uvicorn
 
 
 
@@ -60,7 +61,9 @@ def create_application() -> FastAPI:
 
 app = create_application()
 
-
+if __name__ == "__main__":
+    server_port = int(os.environ.get('PORT', 8080))
+    uvicorn.run("main:app", host="0.0.0.0", port=server_port, log_level="info")
 
 
 # app.mount("/static", StaticFiles(directory="./static"), name="static")

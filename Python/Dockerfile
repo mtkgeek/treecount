@@ -30,7 +30,7 @@ RUN apt install libx11-dev
 # RUN gdebi -n r-4.2.2_1_amd64.deb
 
 # Enable the Extra Packages for Enterprise Linux (EPEL) repository
-RUN apt-get install -y yum
+# RUN apt-get install -y yum
 
 # RUN \
 #     yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm && \
@@ -47,7 +47,7 @@ RUN R -e "install.packages('ForestTools', repos='http://cran.us.r-project.org')"
 RUN R -e "install.packages('rgdal', repos='http://cran.us.r-project.org')"
 
 
-# ENV R_HOME /usr/lib/R
+ENV R_HOME /usr/lib/R
 
 
 COPY ./requirements.txt /code/requirements.txt

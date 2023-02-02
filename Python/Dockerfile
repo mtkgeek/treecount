@@ -13,7 +13,7 @@ WORKDIR /code
 # RUN apt-get update
 RUN apt-get -y dist-upgrade
 # install R on the server
-RUN apt install -y --no-install-recommends software-properties-common dirmngr
+# RUN apt install -y --no-install-recommends software-properties-common dirmngr
 # Add the keys
 RUN wget -qO- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | tee -a /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc
 # add the R 4.0 repo from CRAN -- adjust 'focal' to 'groovy' or 'bionic' as needed

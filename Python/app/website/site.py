@@ -7,8 +7,8 @@ from fastapi.responses import JSONResponse, HTMLResponse, FileResponse
 from typing import List
 
 
-from Python.app.config import Settings, get_settings
-from Python.app.functions import count_trees
+from config import Settings, get_settings
+from functions import count_trees
 
 from . import web_config
 from pathlib import Path
